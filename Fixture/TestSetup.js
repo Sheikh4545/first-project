@@ -1,5 +1,5 @@
 import { test as base } from '@playwright/test';
-import BasePage from '../pages/BasePage.js';
+import BasePage from '../Pages/BasePage.js';
 import { attachScreenshotAfterEach } from '../utilities/screenshot.js';
 const APP_URL = 'https://adactinhotelapp.com/';   //now URL will come from fixture
 export const test = base.extend({
