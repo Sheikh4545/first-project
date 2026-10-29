@@ -1,9 +1,14 @@
 name: Playwright Tests
 on:
-  push:
-    branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
+  # Manual trigger only - pushes will NOT trigger tests automatically
+  workflow_dispatch:
+
+# Uncomment below if you ever want tests to run automatically on push again:
+# push:
+#   branches: [ main, master ]
+# pull_request:
+#   branches: [ main, master ]
+
 jobs:
   test:
     timeout-minutes: 60
