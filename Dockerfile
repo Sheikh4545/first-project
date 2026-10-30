@@ -12,5 +12,8 @@ RUN npm ci
 # Copy the rest of the application code
 COPY . .
 
+# Default environment variables
+ENV CI=true
+
 # Default command to run Playwright tests
 CMD ["npx", "playwright", "test"]
