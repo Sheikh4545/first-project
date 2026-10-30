@@ -7,10 +7,12 @@
             "searchHotel": "Hotel Creek",
             "searchRoomType": "Standard",
             "searchNumberOfRooms": "1 - One",
-            "searchCheckInDate": "10/10/2023",
-            "searchCheckOutDate": "12/10/2023",
+            "searchCheckInDate": "10/10/2027",
+            "searchCheckOutDate": "12/10/2027",
             "searchAdultsPerRoom": "2 - Two",
-            "searchChildrenPerRoom": "0 - None"
+            "searchChildrenPerRoom": "0 - None",
+            "selectHotelRadioButton": "radiobutton_0",
+            "continueButton": "continue"
         }
     ]
 }

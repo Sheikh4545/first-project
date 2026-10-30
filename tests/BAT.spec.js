@@ -171,7 +171,7 @@ test('End-to-End Hotel Booking Test Case', async ({ page }) => {
     await attachStepScreenshot(page, 'Hotel Booking Form Submitted');
 
     // 5. Confirm and view Itinerary
-    await expect(page).toHaveURL(AssertionData.assertions[0].book_hotel_url);
+    await expect(page).toHaveURL(AssertionData.assertions[0].booking_confirm_url);
     await attachStepScreenshot(page, 'Hotel Booking Confirmation Page Loaded');
     
     await confirmHotel.goToMyItinerary();

@@ -1,11 +1,9 @@
 
-
 import ConfirmHotel from '../Pages/ConfirmHotel';
 import LoginPage from '../Pages/LoginPage';
 import SearchHotel from '../Pages/SearchHotel';
 import SelectHotel from '../Pages/SelectHotel';
 import BookHotel from '../Pages/BookHotel';
-import LoginData from '../testdata/LoginData.json';
 import SearchData from '../testdata/SearchData.json';
 import BookData from '../testdata/BookData.json';
 import { test, expect } from '../Fixture/TestSetup';
@@ -29,57 +27,45 @@ test.describe('Confirm Hotel Suite', () => {
 
     const sData = SearchData.ValidUser[0];
     const bData = BookData.BookingData[0];
-   // const creds = LoginData.ValidUser[0];
 
     // 1. Login
     await loginPage.gotoUrl(AppConfig.loginUrl);
     await loginPage.login(AppConfig.username, AppConfig.password);
 
-    // 2. Search Hotel
+    // 2. Search Hotel — Page Object handles screenshots internally
     await searchHotelPage.searchHotel(
       sData.searchLocation,
-      await step.attachScreenshot(page, 'Search Hotel Page Location'),
       sData.searchHotel,
-      await step.attachScreenshot(page, 'Search Hotel Page hotel'),
       sData.searchRoomType,
-      await step.attachScreenshot(page, 'Search Hotel Page Roomtype'),
       sData.searchNumberOfRooms,
-      await step.attachScreenshot(page, 'Search Hotel Page NumberofRooms'),
       sData.searchCheckInDate,
-      await step.attachScreenshot(page, 'Search Hotel Page Checkin'),
       sData.searchCheckOutDate,
-      await step.attachScreenshot(page, 'Search Hotel Page Checkout'),
       sData.searchAdultsPerRoom,
-      await step.attachScreenshot(page, 'Search Hotel Page Adults '),
       sData.searchChildrenPerRoom
     );
+    await attachStepScreenshot(page, 'Search Hotel Completed');
 
     // 3. Select Hotel
     await selectHotelPage.selectHotel(sData.selectHotelRadioButton, sData.continueButton);
+    await attachStepScreenshot(page, 'Hotel Selected');
 
-    // 4. Book Hotel 
+    // 4. Book Hotel — Page Object handles screenshots internally
     await bookHotelPage.bookingHotel(
       bData.FirstName,
-      await step.attachScreenshot(page, 'Book Hotel Page Firstname'),
       bData.LastName,
-      await step.attachScreenshot(page, 'Book Hotel Page Lastname'),
       bData.BillingAddress,
-      await step.attachScreenshot(page, 'Book Hotel Page Billing'),
       bData.CreditCardNo,
-      await step.attachScreenshot(page, 'Book Hotel Page CreditCardNo'),
       bData.CreditCardType,
-      await step.attachScreenshot(page, 'Book Hotel Page CreditCardType'),
       bData.ExpiryMonth,
-      await step.attachScreenshot(page, 'Book Hotel Page ExpiryMonth'),
       bData.ExpiryYear,
-      await step.attachScreenshot(page, 'Book Hotel Page ExpiryYear'),
       bData.CVVNumber
     );
+    await attachStepScreenshot(page, 'Hotel Booking Submitted');
   });
 
   test('Confirm Hotel and View Itinerary Test Case', async ({ page }) => {
     await test.step('Verify Confirmation Page URL', async () => {
-        await expect(page).toHaveURL(AssertionData.assertions[0].book_hotel_url);
+        await expect(page).toHaveURL(AssertionData.assertions[0].booking_confirm_url);
         await attachStepScreenshot(page, 'Confirm Hotel Page Loaded');
     });
 
