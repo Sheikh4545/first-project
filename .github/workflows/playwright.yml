@@ -34,13 +34,3 @@ jobs:
         name: allure-report
         path: allure-report/
         retention-days: 30
-
-  docker-test:
-    name: Docker Test Run
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - name: Build Playwright Docker Image
-      run: docker build -t playwright-tests .
-    - name: Run Playwright in Docker Container
-      run: docker run --rm --ipc=host playwright-tests
