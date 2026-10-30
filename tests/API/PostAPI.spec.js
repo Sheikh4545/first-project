@@ -48,7 +48,7 @@ test.describe('Post Test Cases', () => {
         const response = await api.post('login', testData.post.userLogin.data);
         await attachApiLog(testInfo, 'User Login Response', response);
         expect(response.status()).toBe(testData.post.userLogin.expectedStatus);
+
+        
     });
 });
- 
- 
